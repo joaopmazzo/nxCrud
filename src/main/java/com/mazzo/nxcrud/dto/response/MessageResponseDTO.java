@@ -1,4 +1,4 @@
-package com.mazzo.nxcrud.dto;
+package com.mazzo.nxcrud.dto.response;
 
 import lombok.Builder;
 import lombok.Data;
