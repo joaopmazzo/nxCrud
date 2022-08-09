@@ -1,2 +1,7 @@
-package com.mazzo.nxcrud.service;public class UserService {
+package com.mazzo.nxcrud.service;
+
+public class UserService {
+
+
+
 }
