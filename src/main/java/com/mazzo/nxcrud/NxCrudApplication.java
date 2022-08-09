@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class NxCrudApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(NxCrudApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(NxCrudApplication.class, args);
+    }
 
 }
