@@ -2,6 +2,8 @@ package com.mazzo.nxcrud.controller;
 
 import com.mazzo.nxcrud.dto.request.UserDTO;
 import com.mazzo.nxcrud.dto.response.MessageResponseDTO;
+import com.mazzo.nxcrud.entity.User;
+import com.mazzo.nxcrud.exception.UserNotFoundException;
 import com.mazzo.nxcrud.service.UserService;
 
 import jakarta.validation.Valid;
@@ -28,6 +30,21 @@ public class UserController {
     @GetMapping
     public List<UserDTO> listAll() {
         return userService.listAll();
+    }
+
+    @GetMapping("/{id}")
+    public UserDTO findById(@PathVariable String id) throws UserNotFoundException {
+        return userService.findById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public MessageResponseDTO deleteUserById(@PathVariable String id) throws UserNotFoundException {
+        return userService.deleteById(id);
+    }
+
+    @PutMapping("/{id}")
+    public MessageResponseDTO updateUserById(@PathVariable String id, @RequestBody @Valid UserDTO userDTO) throws UserNotFoundException {
+        return userService.updateUserById(id, userDTO);
     }
 
 }
