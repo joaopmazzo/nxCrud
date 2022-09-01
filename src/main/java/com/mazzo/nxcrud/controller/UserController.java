@@ -2,7 +2,6 @@ package com.mazzo.nxcrud.controller;
 
 import com.mazzo.nxcrud.dto.request.UserDTO;
 import com.mazzo.nxcrud.dto.response.MessageResponseDTO;
-import com.mazzo.nxcrud.entity.User;
 import com.mazzo.nxcrud.exception.UserNotFoundException;
 import com.mazzo.nxcrud.service.UserService;
 
