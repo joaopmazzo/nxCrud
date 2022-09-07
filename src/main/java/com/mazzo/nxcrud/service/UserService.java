@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -49,10 +50,18 @@ public class UserService {
     }
 
     public MessageResponseDTO updateUserById(String id, UserDTO userDTO) throws UserNotFoundException {
-        verifyIfExists(id);
+        User userData = verifyIfExists(id);
 
         User userToUpdate = userMapper.toModel(userDTO);
-        User updatedUser = userRepository.save(userToUpdate);
+
+        userData.setName(userToUpdate.getName());
+        userData.setDocument(userToUpdate.getDocument());
+        userData.setEmail(userToUpdate.getEmail());
+        userData.setCity(userToUpdate.getCity());
+        userData.setState(userToUpdate.getState());
+
+        User updatedUser = userRepository.save(userData);
+
         return createMessageResponseDTO(updatedUser.getId(), "User updated with ID ");
     }
 
